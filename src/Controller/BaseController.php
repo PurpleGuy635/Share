@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\ContactType;
 
 class BaseController extends AbstractController
 {
@@ -17,11 +18,12 @@ class BaseController extends AbstractController
 
     }
 
-    #[Route('/contact', name: 'contact')] // étape 1
-    public function contact(): Response // étape 2
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
     {
-        return $this->render('base/contact.html.twig', [ // étape 3
-            
+        $form = $this->createForm(ContactType::class);
+        return $this->render('base/contact.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
