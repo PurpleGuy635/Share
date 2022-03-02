@@ -43,6 +43,7 @@ class BaseController extends AbstractController
                     'message'=> $contact->getMessage()
                 ]);
 
+                $contact->setDateEnvoi(new \Datetime());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contact);
                 $em->flush();
