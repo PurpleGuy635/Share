@@ -32,5 +32,13 @@ class BaseController extends AbstractController
             
         ]);
     }
+
+    #[Route('/propos', name: 'propos')] // étape 1
+    public function propos(): Response // étape 2
+    {
+        return $this->render('base/propos.html.twig', [ // étape 3
+            
+        ]);
+    }
 }
       
