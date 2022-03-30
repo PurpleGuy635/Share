@@ -9,7 +9,7 @@ use App\Entity\Contact;
 
 class ContactController extends AbstractController
 {
-    #[Route('/liste-contacts', name: 'liste-contacts')]
+    #[Route('/private-liste-contacts', name: 'liste-contacts')]
     public function listeContacts(): Response
     {
         $repoContact = $this->getDoctrine()->getRepository(Contact::class);
